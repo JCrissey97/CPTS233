@@ -19,7 +19,7 @@ public class MA1_main
     	//test inputs
     	Vector<HashItem<String, String>> items = ht.getItems();    
     	
-    	if (items.elementAt(7).getKey() != "especially")
+    	if (items.elementAt(1).getKey() != "especially")
     	{
     		System.out.println("Key failure: especially");    		
     	}
@@ -28,7 +28,7 @@ public class MA1_main
     		System.out.println("Key success: especially");    		
     	}
     
-    	if (items.elementAt(3).getKey() != "I")
+    	if (items.elementAt(7).getKey() != "I")
     	{
     		System.out.println("Key failure: I");    		
     	}
@@ -37,7 +37,7 @@ public class MA1_main
     		System.out.println("Key success: I");    		
     	}
     
-    	if (items.elementAt(8).getValue() != "233")
+    	if (items.elementAt(4).getValue() != "233")
     	{
     		System.out.println("Value failure: 233");    		
     	}
@@ -46,7 +46,7 @@ public class MA1_main
     		System.out.println("Value success: 233");    		
     	}
     
-    	if (items.elementAt(4).getKey() != "Hashtables")
+    	if (items.elementAt(2).getKey() != "Hashtables")
     	{
     		System.out.println("Key failure: Hashtables");    		
     	}
@@ -59,7 +59,7 @@ public class MA1_main
     	ht.removeElement("especially");
     	ht.removeElement("And");
     	items = ht.getItems();
-    	if (items.elementAt(7).isEmpty() == true && items.elementAt(7).getKey() == "especially")
+    	if (items.elementAt(1).isEmpty() == true && items.elementAt(1).getKey() == "especially")
     	{
     		System.out.println("Remove key \"especially\" success.");    		
     	}
@@ -67,7 +67,7 @@ public class MA1_main
     	{
     		System.out.println("Remove key \"especially\" failure.");    		
     	}
-    	if (items.elementAt(5).isEmpty() == true && items.elementAt(5).getKey() == "And")
+    	if (items.elementAt(0).isEmpty() == true && items.elementAt(0).getKey() == "And")
     	{
     		System.out.println("Remove key \"And\" success.");    		
     	}

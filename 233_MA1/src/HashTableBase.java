@@ -27,7 +27,7 @@ abstract class HashTableBase<K, V>
 	//shortcut method for calling full hasher's getHash function
 	protected int getHash(K item)
 	{
-		return _hasher.getHash(item, _items.size() - 1);
+		return _hasher.getHash(item, _items.size());
 	}
 	
 	public HashTableBase()
