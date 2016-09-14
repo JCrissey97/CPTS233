@@ -98,7 +98,7 @@ class LinearHashTable<K, V> extends HashTableBase<K, V>
     	{
     		hash = (hash + 1) % _items.size();
     		probes++;
-    		if(probes >= _items.size() || _items.elementAt(hash).isEmpty()) throw new IllegalArgumentException("Element doesn\'t exist");
+    		if(probes > _items.size()) throw new IllegalArgumentException("Element doesn\'t exist");
     	}
     	_items.elementAt(hash).setIsEmpty(true);
     	//MA #1 TODO: find slot to remove. Remember to check for infinite loop!
