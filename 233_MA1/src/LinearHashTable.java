@@ -70,7 +70,18 @@ class LinearHashTable<K, V> extends HashTableBase<K, V>
     	int hash = super.getHash(key);
     	
     	//MA #1 TODO: find empty slot to insert (update hash variable as necessary)
+    	while(!_items.elementAt(hash).isEmpty())
+    	{
+    		if(hash >= _items.size()) hash %= _items.size();
+    		else hash++;
+    	}
     	
+    	HashItem<K, V> new_item = new HashItem<>();
+    	new_item.setKey(key);
+    	new_item.setValue(value);
+    	new_item.setIsEmpty(false);
+    	
+    	_items.setElementAt(new_item, hash);
 		
     	//remember how many things we are presently storing
     	_number_of_elements++;
@@ -81,7 +92,15 @@ class LinearHashTable<K, V> extends HashTableBase<K, V>
     {
     	//calculate hash
     	int hash = super.getHash(key);
-    	
+    	int probes = 0;
+    	if(!containsElement(key)) throw new IllegalArgumentException("Element doesn\'t exist");
+    	else while(_items.elementAt(hash).getValue() != getElement(key))
+    	{
+    		hash = (hash + 1) % _items.size();
+    		probes++;
+    		if(probes >= _items.size() || _items.elementAt(hash).isEmpty()) throw new IllegalArgumentException("Element doesn\'t exist");
+    	}
+    	_items.elementAt(hash).setIsEmpty(true);
     	//MA #1 TODO: find slot to remove. Remember to check for infinite loop!
     	
     	//decrement hashtable size
